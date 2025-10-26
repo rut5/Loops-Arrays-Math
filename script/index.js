@@ -4,15 +4,22 @@ function guessNumberGame() {
 
     let answer = Math.floor(Math.random() * 10) + 1
 
-    console.log(answer) //just to see if it works
-    let numInput = parseInt(prompt("Guess a number from 1-10 " + "HINT it's " + answer))
+    // console.log(answer) just to see if it works
+    let numInput = parseInt(prompt("Guess a number from 1-10"))
+    let feedback = "wrong"
 
     while (numInput !== answer) {
-        console.log("You guesssed " + numInput + ". That wasn't the right number. Try again")
-        numInput = parseInt(prompt("Guess a number from 1-10" + answer))
+
+        if (numInput > answer) {
+            feedback = "lower";
+
+        } else { feedback = "higher"; }
+
+        numInput = parseInt(prompt("You guesssed " + numInput + ". The number is " + feedback + ". Try again."));
+
     }
-    
-    console.log(`Yay! You guessed the right number`);
+
+    prompt("Yay! You guessed the right number");
 }
 
 guessNumberGame();
@@ -21,31 +28,33 @@ guessNumberGame();
 // 2. generateRandomArray
 
 function generateRandomArray(length) {
-    let number100 = []
-
-    for (let i = 0; i < 3; i++) {
-        number100.push(Math.floor(Math.random() * 100) + 1)
-    } // adds 3 random numbers
+    let num100 = [] // empty list
 
     for (let i = 0; i < length; i++) {
-        number100.push(Math.floor(Math.random() * 100) + 1)
-    } // generate more numbers based of what number there is in the length, variabel (in this case 2)
+        num100.push(Math.floor(Math.random() * 100) + 1)
+    } // generates the amount of numbers that is in the length variable (in this case 5)
 
-    for (let i = 0; i < number100.length; i++) {
-        console.log(number100[i]);
-    }
+    console.log(num100);
 
 }
 
-generateRandomArray(2);
+console.log("Start")
 
-// I had trouble with this exercise even though I rewatched your videos, below is the code I started with but then changed my mind (because I need the for-loop)
+generateRandomArray(5);
 
-/* let number100 = [Math.floor(Math.random() * 100) + 1, Math.floor(Math.random() * 100) + 1];
-// array with 2 random numbers between 1-100
+console.log("End")
+
+/* 
+I had trouble with this exercise even though I rewatched your videos, below is the code I started with but then changed my mind (because I need the for-loop)
+
+for (let i = 0; i < 3; i++) {
+    num100.push(Math.floor(Math.random() * 100) + 1)
+} adds 3 random numbers
+let number100 = [Math.floor(Math.random() * 100) + 1, Math.floor(Math.random() * 100) + 1];
+array with 2 random numbers between 1-100
 
 number100.push(Math.floor(Math.random() * 100) + 1)
-// adds another random number to the array
+adds another random number to the array
 
 console.log(number100[0])
 console.log(number100[1])
@@ -57,18 +66,16 @@ console.log(number100[2]) */
 function sumEvenNumbers(array) {
     let sum = 0;
 
-    for (let evenNum = 0; evenNum < array.length; evenNum++) {
-        if (array[evenNum] % 2 === 0) {
-            sum += array[evenNum];
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] % 2 === 0) {
+            sum += array[i]; // sum = sum + array[i]
         }
     }
 
     return sum;
 }
-    const numbers = [1, 2, 3, 4, 5, 6]
-    const evenSum = sumEvenNumbers(numbers);
 
-    console.log(evenSum);
-// in this case, the sum of the even numbers = 12
+console.log("The sum of even numbers in the array is: ")
+console.log(sumEvenNumbers([1, 2, 3, 4, 5, 6, 7]));
 
-
+// in this case the answer is 12
