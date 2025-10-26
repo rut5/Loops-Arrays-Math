@@ -1,25 +1,24 @@
-// guessNumberGame
+// 1. guessNumberGame
 
 function guessNumberGame() {
 
-    let number10 = Math.floor(Math.random() * 10) + 1
+    let answer = Math.floor(Math.random() * 10) + 1
 
-    // console.log(number) just to see if it works
+    console.log(answer) //just to see if it works
+    let numInput = parseInt(prompt("Guess a number from 1-10 " + "HINT it's " + answer))
 
-    let numberInput = prompt(`Guess a number from 1-10`)
-
-    if (numberInput.includes(number10)) {
-        console.log(`Yay! You guessed the right number`);
-    } else {
-        console.log(`That wasn't the right number. Try again`)
-        // add more code here later for the user to be able to keep guessing the same number
+    while (numInput !== answer) {
+        console.log("You guesssed " + numInput + ". That wasn't the right number. Try again")
+        numInput = parseInt(prompt("Guess a number from 1-10" + answer))
     }
-
+    
+    console.log(`Yay! You guessed the right number`);
 }
 
 guessNumberGame();
 
-// generateRandomArray
+
+// 2. generateRandomArray
 
 function generateRandomArray(length) {
     let number100 = []
@@ -53,16 +52,23 @@ console.log(number100[1])
 console.log(number100[2]) */
 
 
-/* EXERCISE 3: Calculate the sum of even numbers in the array  
- 
-Create a function sumEvenNumbers that accepts an array as an argument.  
-
-Use a for loop to iterate through the array and calculate the sum of the even numbers.  
-
-Return the sum of the even numbers. */
+// 3. sumEvenNumbers
 
 function sumEvenNumbers(array) {
+    let sum = 0;
 
+    for (let evenNum = 0; evenNum < array.length; evenNum++) {
+        if (array[evenNum] % 2 === 0) {
+            sum += array[evenNum];
+        }
+    }
 
+    return sum;
 }
+    const numbers = [1, 2, 3, 4, 5, 6]
+    const evenSum = sumEvenNumbers(numbers);
+
+    console.log(evenSum);
+// in this case, the sum of the even numbers = 12
+
 
